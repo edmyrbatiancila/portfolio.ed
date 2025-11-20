@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, Download, Sparkles } from 'lucide-react';
 import './intro.css';
 import { containerVariants, itemVariants } from '../../utils/Intro/motionVariants';
+import { textArray } from '../../utils/Intro/introText';
 
 const Intro: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -15,30 +16,7 @@ const Intro: React.FC = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // const containerVariants = {
-  //   hidden: { opacity: 0 },
-  //   visible: {
-  //     opacity: 1,
-  //     transition: {
-  //       delayChildren: 0.3,
-  //       staggerChildren: 0.2
-  //     }
-  //   }
-  // };
-
-  // const itemVariants = {
-  //   hidden: { y: 20, opacity: 0 },
-  //   visible: {
-  //     y: 0,
-  //     opacity: 1,
-  //     transition: {
-  //       duration: 0.8,
-  //       ease: [0.6, -0.05, 0.01, 0.99] as const
-  //     }
-  //   }
-  // };
-
-  const textArray = ["Web Developer", "Full-Stack Enthusiast", "Problem Solver", "Creative Thinker", "Drummer 🥁", "Runner 🥈", "Hiker 🌄"];
+  // const textArray = ["Web Developer", "Full-Stack Enthusiast", "Problem Solver", "Creative Thinker", "Drummer 🥁", "Runner 🥈", "Hiker 🌄"];
   const [currentText, setCurrentText] = useState(0);
 
   useEffect(() => {
@@ -46,7 +24,7 @@ const Intro: React.FC = () => {
       setCurrentText((prev) => (prev + 1) % textArray.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [textArray.length]);
+  }, []);
 
   return (
     <section
