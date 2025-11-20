@@ -3,8 +3,6 @@ import './skills.css';
 import htmlLogo from '../../assets/HTML.png';
 import cssLogo from '../../assets/css-logo.png';
 import javascriptLogo from '../../assets/JavaScript.png';
-import expressLogo from '../../assets/express-js.png';
-import codeigniterLogo from '../../assets/codeigniter.png';
 import bootstrapLogo from '../../assets/bootstrap.png';
 import githubLogo from '../../assets/github.png';
 import reactLogo from '../../assets/react-logo.png';
