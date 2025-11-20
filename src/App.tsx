@@ -9,6 +9,7 @@ import Footer from './components/Footer/footer';
 
 const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
+  
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
