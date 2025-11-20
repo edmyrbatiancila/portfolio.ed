@@ -170,7 +170,7 @@ const Works: React.FC = () => {
             className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8"
           >
             I am passionate about what I do. These projects showcase the skills I have gained from 
-            4 months of coding bootcamp and 1 year of self-study. Each project demonstrates my growth 
+            4 months of coding bootcamp, 3 years of self-study and 1+ years of professional experience as a web developer. Each project demonstrates my growth 
             and commitment to continuous learning.
           </motion.p>
 

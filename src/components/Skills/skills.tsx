@@ -143,10 +143,10 @@ const Skills: React.FC = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
         >
           {[
-            { number: "15+", label: "Technologies", icon: Code },
-            { number: "6+", label: "Years Experience", icon: Database },
+            { number: "30+", label: "Technologies", icon: Code },
+            { number: "1+", label: "Years Professional Experience", icon: Database },
             { number: "4", label: "Months Bootcamp", icon: Globe },
-            { number: "1+", label: "Years Self-Study", icon: Zap },
+            { number: "3+", label: "Years Self-Study", icon: Zap },
           ].map(({ number, label, icon: Icon }, index) => (
             <motion.div
               key={label}
