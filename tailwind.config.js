@@ -1,13 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./public/index.html"
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
           50: '#f8fafc',
           100: '#f1f5f9',
           200: '#e2e8f0',
@@ -21,6 +36,8 @@ module.exports = {
           950: '#2e1065',
         },
         secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
           50: '#fdf4ff',
           100: '#fae8ff',
           200: '#f5d0fe',
@@ -32,6 +49,31 @@ module.exports = {
           800: '#86198f',
           900: '#701a75',
         },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+          cyan: '#06b6d4',
+          teal: '#14b8a6',
+          emerald: '#10b981',
+          yellow: '#f59e0b',
+          orange: '#f97316',
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
         dark: {
           50: '#f8fafc',
           100: '#f1f5f9',
@@ -41,13 +83,11 @@ module.exports = {
           500: '#020617',
           600: '#000000',
         },
-        accent: {
-          cyan: '#06b6d4',
-          teal: '#14b8a6',
-          emerald: '#10b981',
-          yellow: '#f59e0b',
-          orange: '#f97316',
-        }
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
