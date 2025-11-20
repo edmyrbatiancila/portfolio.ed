@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Code, Coffee, ArrowUp } from 'lucide-react';
+import { Button } from '../ui/button';
+import { Badge } from '../ui/badge';
 import './footer.css';
 
 const Footer: React.FC = () => {
@@ -70,13 +72,17 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold text-white">Built With</h4>
             <div className="flex flex-wrap gap-2">
               {['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'].map((tech) => (
-                <motion.span
+                <motion.div
                   key={tech}
                   whileHover={{ scale: 1.05 }}
-                  className="px-3 py-1 bg-primary-500/20 text-primary-400 rounded-full text-xs font-medium border border-primary-500/30"
                 >
-                  {tech}
-                </motion.span>
+                  <Badge
+                    variant="secondary" 
+                    className="px-3 py-1 bg-primary-500/20 text-primary-400 rounded-full text-xs font-medium border border-primary-500/30"
+                  >
+                    {tech}
+                  </Badge>
+                </motion.div>
               ))}
             </div>
             <div className="flex items-center gap-2 text-sm text-gray-400">
@@ -105,15 +111,20 @@ const Footer: React.FC = () => {
                 Designed & Developed in Philippines 🇵🇭
               </span>
               
-              <motion.button
-                onClick={scrollToTop}
+              <motion.div
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
-                className="p-2 bg-primary-500/20 hover:bg-primary-500/30 text-primary-400 rounded-full border border-primary-500/30 hover:border-primary-500/50 transition-all duration-300"
-                aria-label="Scroll to top"
               >
-                <ArrowUp size={16} />
-              </motion.button>
+                <Button
+                  onClick={scrollToTop}
+                  variant="outline"
+                  size="icon"
+                  className="p-2 bg-primary-500/20 hover:bg-primary-500/30 text-primary-400 rounded-full border border-primary-500/30 hover:border-primary-500/50 transition-all duration-300"
+                  aria-label="Scroll to top"
+                >
+                  <ArrowUp size={16} />
+                </Button>
+              </motion.div>
             </div>
           </div>
         </motion.div>

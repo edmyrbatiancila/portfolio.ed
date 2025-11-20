@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Code, Database, Globe, Zap } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Badge } from '../ui/badge';
 import './skills.css';
 import { skillCategories } from '../../utils/Skills/skill-category';
 import { containerVariants, itemVariants, skillVariants } from '../../utils/Skills/motionVariants';
@@ -59,21 +61,22 @@ const Skills: React.FC = () => {
                 key={category.title}
                 variants={itemVariants}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="group relative bg-gradient-to-br from-dark-200/50 to-dark-300/50 backdrop-blur-sm rounded-2xl p-6 border border-primary-500/20 hover:border-primary-500/40 transition-all duration-300 hover:shadow-glow"
+                className="group relative"
               >
-                {/* Category Header */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-3 rounded-xl bg-gradient-to-r ${category.color} shadow-lg`}>
-                    <IconComponent 
-                      size={24} 
-                      className="text-white" 
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">{category.title}</h3>
-                </div>
+                <Card className="bg-gradient-to-br from-dark-200/50 to-dark-300/50 backdrop-blur-sm border-primary-500/20 hover:border-primary-500/40 transition-all duration-300 hover:shadow-glow h-full">
+                  <CardHeader>
+                    <div className="flex items-center gap-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-r ${category.color} shadow-lg`}>
+                        <IconComponent 
+                          size={24} 
+                          className="text-white" 
+                        />
+                      </div>
+                      <CardTitle className="text-xl font-bold text-white">{category.title}</CardTitle>
+                    </div>
+                  </CardHeader>
 
-                {/* Skills */}
-                <div className="space-y-4">
+                  <CardContent className="space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
@@ -99,9 +102,9 @@ const Skills: React.FC = () => {
                             <h4 className="font-semibold text-white group-hover/skill:text-primary-400 transition-colors duration-300">
                               {skill.name}
                             </h4>
-                            <span className="text-sm text-gray-400 font-medium">
+                            <Badge variant="secondary" className="text-xs">
                               {skill.level}%
-                            </span>
+                            </Badge>
                           </div>
                           <p className="text-xs text-gray-500 mt-1">
                             {skill.description}
@@ -124,10 +127,11 @@ const Skills: React.FC = () => {
                       </div>
                     </motion.div>
                   ))}
-                </div>
+                  </CardContent>
 
-                {/* Hover Effect Background */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
+                  {/* Hover Effect Background */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
+                </Card>
               </motion.div>
             );
           })}

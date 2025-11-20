@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, Download, Sparkles } from 'lucide-react';
+import { Button } from '../ui/button';
 import './intro.css';
 import { containerVariants, itemVariants } from '../../utils/Intro/motionVariants';
 import { textArray } from '../../utils/Intro/introText';
@@ -164,30 +165,36 @@ const Intro: React.FC = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
-            <motion.button
+            <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-4 rounded-full font-medium hover:shadow-glow-lg transition-all duration-300"
-              onClick={() => {
-                const worksElement = document.getElementById("works");
-                if (worksElement) {
-                  worksElement.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
             >
-              <span>View My Work</span>
-              <ChevronDown size={20} className="group-hover:translate-y-1 transition-transform duration-300" />
-            </motion.button>
+              <Button
+                className="group flex items-center gap-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-8 py-4 rounded-full font-medium hover:shadow-glow-lg transition-all duration-300"
+                onClick={() => {
+                  const worksElement = document.getElementById("works");
+                  if (worksElement) {
+                    worksElement.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                <span>View My Work</span>
+                <ChevronDown size={20} className="group-hover:translate-y-1 transition-transform duration-300" />
+              </Button>
+            </motion.div>
 
-            <motion.a
+            <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              href="#"
-              className="flex items-center gap-3 bg-dark-200/50 backdrop-blur-sm border border-primary-500/30 text-gray-300 px-8 py-4 rounded-full font-medium hover:bg-dark-200/70 hover:border-primary-500/50 transition-all duration-300"
             >
-              <Download size={20} />
-              <span>Download CV</span>
-            </motion.a>
+              <Button
+                variant="outline"
+                className="flex items-center gap-3 bg-dark-200/50 backdrop-blur-sm border border-primary-500/30 text-gray-300 px-8 py-4 rounded-full font-medium hover:bg-dark-200/70 hover:border-primary-500/50 transition-all duration-300"
+              >
+                <Download size={20} />
+                <span>Download CV</span>
+              </Button>
+            </motion.div>
           </motion.div>
 
           {/* Social links */}
@@ -199,17 +206,26 @@ const Intro: React.FC = () => {
               { icon: Github, href: "https://github.com/edmyrbatiancila", label: "GitHub" },
               { icon: Linkedin, href: "https://www.linkedin.com/in/edmyr-batiancila/", label: "LinkedIn" },
             ].map(({ icon: Icon, href, label }) => (
-              <motion.a
+              <motion.div
                 key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
                 whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.9 }}
-                className="group p-3 rounded-full bg-dark-200/50 backdrop-blur-sm border border-primary-500/20 hover:border-primary-500/50 hover:shadow-glow transition-all duration-300"
               >
-                <Icon size={24} className="text-gray-400 group-hover:text-primary-400 transition-colors duration-300" />
-              </motion.a>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  asChild
+                  className="group p-3 rounded-full bg-dark-200/50 backdrop-blur-sm border border-primary-500/20 hover:border-primary-500/50 hover:shadow-glow transition-all duration-300"
+                >
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon size={24} className="text-gray-400 group-hover:text-primary-400 transition-colors duration-300" />
+                  </a>
+                </Button>
+              </motion.div>
             ))}
           </motion.div>
         </div>

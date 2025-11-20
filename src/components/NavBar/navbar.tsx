@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Mail } from 'lucide-react';
 import { Link } from 'react-scroll';
+import { Button } from '../ui/button';
 import logo from '../../assets/logo.png';
 import './navbar.css';
 
@@ -78,29 +79,39 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* CTA Button */}
-          <motion.button
+          <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden md:flex items-center gap-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2 rounded-full hover:shadow-glow transition-all duration-300"
-            onClick={() => {
-              const contactElement = document.getElementById("contact");
-              if (contactElement) {
-                contactElement.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
+            className="hidden md:block"
           >
-            <Mail size={16} />
-            <span>Let's Talk</span>
-          </motion.button>
+            <Button
+              className="flex items-center gap-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2 rounded-full hover:shadow-glow transition-all duration-300"
+              onClick={() => {
+                const contactElement = document.getElementById("contact");
+                if (contactElement) {
+                  contactElement.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
+              <Mail size={16} />
+              <span>Let's Talk</span>
+            </Button>
+          </motion.div>
 
           {/* Mobile menu button */}
-          <motion.button
+          <motion.div
             whileTap={{ scale: 0.9 }}
-            className="md:hidden p-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-dark-200/50 transition-colors duration-300"
-            onClick={() => setShowMenu(!showMenu)}
+            className="md:hidden"
           >
-            {showMenu ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="p-2 rounded-lg text-gray-300 hover:text-primary-400 hover:bg-dark-200/50 transition-colors duration-300"
+              onClick={() => setShowMenu(!showMenu)}
+            >
+              {showMenu ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </motion.div>
         </div>
       </div>
 
@@ -134,24 +145,27 @@ const Navbar: React.FC = () => {
                   </Link>
                 </motion.div>
               ))}
-              <motion.button
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-3 rounded-lg mt-4 hover:shadow-glow transition-all duration-300"
-                onClick={() => {
-                  setShowMenu(false);
-                  const contactElement = document.getElementById("contact");
-                  if (contactElement) {
-                    contactElement.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
               >
-                <Mail size={16} />
-                <span>Let's Talk</span>
-              </motion.button>
+                <Button
+                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-3 rounded-lg mt-4 hover:shadow-glow transition-all duration-300"
+                  onClick={() => {
+                    setShowMenu(false);
+                    const contactElement = document.getElementById("contact");
+                    if (contactElement) {
+                      contactElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  <Mail size={16} />
+                  <span>Let's Talk</span>
+                </Button>
+              </motion.div>
             </div>
           </motion.div>
         )}

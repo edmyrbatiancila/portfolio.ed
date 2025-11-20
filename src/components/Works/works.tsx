@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ExternalLink, Github, Eye, ArrowRight, Zap, Globe } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardTitle } from '../ui/card';
+import { Button } from '../ui/button';
+import { Badge } from '../ui/badge';
 import './works.css';
 import Portfolio1 from '../../assets/can_i_use_clone.JPG';
 import Portfolio2 from '../../assets/contact-list.JPG';
@@ -205,95 +208,104 @@ const Works: React.FC = () => {
               layout
               variants={cardVariants}
               whileHover={{ y: -10, rotateY: 5 }}
-              className={`group relative bg-gradient-to-br from-dark-200/50 to-dark-300/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-primary-500/20 hover:border-primary-500/40 transition-all duration-500 hover:shadow-glow-lg ${
+              className={`group relative transition-all duration-500 hover:shadow-glow-lg ${
                 item.featured ? 'md:col-span-2 lg:col-span-1' : ''
               }`}
             >
-              {/* Featured Badge */}
-              {item.featured && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="absolute top-4 left-4 z-10"
-                >
-                  <div className="flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    <Zap size={14} />
-                    <span>Featured</span>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Image Container */}
-              <div className="relative aspect-video overflow-hidden bg-dark-400">
-                <motion.img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  whileHover={{ scale: 1.1 }}
-                />
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-400/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Action Buttons */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => handleItemClick(item.liveUrl)}
-                    className="flex items-center gap-2 bg-primary-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-600 transition-colors duration-300"
+              <Card className="bg-gradient-to-br from-dark-200/50 to-dark-300/50 backdrop-blur-sm border-primary-500/20 hover:border-primary-500/40 transition-all duration-500 overflow-hidden h-full">
+                {/* Featured Badge */}
+                {item.featured && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="absolute top-4 left-4 z-10"
                   >
-                    <Eye size={16} />
-                    <span>Live Demo</span>
-                  </motion.button>
+                    <Badge className="flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600">
+                      <Zap size={14} />
+                      <span>Featured</span>
+                    </Badge>
+                  </motion.div>
+                )}
+
+                {/* Image Container */}
+                <div className="relative aspect-video overflow-hidden bg-dark-400">
+                  <motion.img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    whileHover={{ scale: 1.1 }}
+                  />
                   
-                  {item.githubUrl && (
-                    <motion.button
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-400/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Action Buttons */}
+                  <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      onClick={() => handleItemClick(item.githubUrl!)}
-                      className="flex items-center gap-2 bg-dark-200 text-white px-4 py-2 rounded-lg font-medium hover:bg-dark-300 transition-colors duration-300"
                     >
-                      <Github size={16} />
-                      <span>Code</span>
-                    </motion.button>
-                  )}
+                      <Button
+                        onClick={() => handleItemClick(item.liveUrl)}
+                        className="flex items-center gap-2 bg-primary-500 hover:bg-primary-600"
+                      >
+                        <Eye size={16} />
+                        <span>Live Demo</span>
+                      </Button>
+                    </motion.div>
+                    
+                    {item.githubUrl && (
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Button
+                          variant="secondary"
+                          onClick={() => handleItemClick(item.githubUrl!)}
+                          className="flex items-center gap-2 bg-dark-200 hover:bg-dark-300"
+                        >
+                          <Github size={16} />
+                          <span>Code</span>
+                        </Button>
+                      </motion.div>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                  <motion.div
-                    whileHover={{ x: 5 }}
-                    className="text-primary-400 group-hover:text-primary-300 transition-colors duration-300"
-                  >
-                    <ArrowRight size={20} />
-                  </motion.div>
-                </div>
-
-                <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
-                  {item.description}
-                </p>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {item.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-primary-500/20 text-primary-400 rounded-full text-xs font-medium border border-primary-500/30"
+                {/* Content */}
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <CardTitle className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors duration-300">
+                      {item.title}
+                    </CardTitle>
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      className="text-primary-400 group-hover:text-primary-300 transition-colors duration-300"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                      <ArrowRight size={20} />
+                    </motion.div>
+                  </div>
 
-                {/* Footer */}
-                <div className="flex items-center justify-between text-sm text-gray-500">
+                  <CardDescription className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3">
+                    {item.description}
+                  </CardDescription>
+
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {item.technologies.map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="bg-primary-500/20 text-primary-400 hover:bg-primary-500/30 border-primary-500/30"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  {/* Footer */}
+                  <div className="flex items-center justify-between text-sm text-gray-500">
                   <div className="flex items-center gap-2">
                     <Globe size={14} />
                     <span>Live Project</span>
@@ -306,11 +318,12 @@ const Works: React.FC = () => {
                     <span>View Details</span>
                     <ExternalLink size={12} />
                   </motion.button>
-                </div>
-              </div>
+                  </div>
+                </CardContent>
 
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-secondary-500/5 to-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 via-secondary-500/5 to-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              </Card>
             </motion.div>
           ))}
         </motion.div>
