@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { Code, Database, Globe, Zap } from 'lucide-react';
 import './skills.css';
 import { skillCategories } from '../../utils/Skills/skill-category';
+import { containerVariants, itemVariants, skillVariants } from '../../utils/Skills/motionVariants';
 
 
 
@@ -10,41 +11,6 @@ import { skillCategories } from '../../utils/Skills/skill-category';
 const Skills: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99] as const
-      }
-    }
-  };
-
-  const skillVariants = {
-    hidden: { scale: 0, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.68, -0.55, 0.265, 1.55] as const
-      }
-    }
-  };
 
   return (
     <section 
@@ -74,9 +40,9 @@ const Skills: React.FC = () => {
             className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
           >
             I am extremely passionate about web and software development. I received intensive training 
-            at a Coding Bootcamp for four months and continued self-studying for a year to reach advanced 
+            at a Coding Bootcamp for 4 months and continued self-studying for 3 years to reach advanced 
             levels in the tools utilized by full-stack developers. Currently, I am focusing on full stack 
-            web development with six years of experience in support roles.
+            web development and I have 9 years of experience in IT Industry.
           </motion.p>
         </motion.div>
 
@@ -87,6 +53,7 @@ const Skills: React.FC = () => {
         >
           {skillCategories.map((category, categoryIndex) => {
             const IconComponent = category.icon;
+
             return (
               <motion.div
                 key={category.title}
@@ -97,7 +64,10 @@ const Skills: React.FC = () => {
                 {/* Category Header */}
                 <div className="flex items-center gap-4 mb-6">
                   <div className={`p-3 rounded-xl bg-gradient-to-r ${category.color} shadow-lg`}>
-                    <IconComponent size={24} className="text-white" />
+                    <IconComponent 
+                      size={24} 
+                      className="text-white" 
+                    />
                   </div>
                   <h3 className="text-xl font-bold text-white">{category.title}</h3>
                 </div>

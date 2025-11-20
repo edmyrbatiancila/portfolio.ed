@@ -33,6 +33,7 @@ import figmaLogo from '../../assets/figma-logo.png';
 import jiraLogo from '../../assets/jira-logo.png';
 import trelloLogo from '../../assets/trello-logo.png';
 import visualStudioLogo from '../../assets/visual-studio-code-logo.png';
+import shadcnLogo from '../../assets/shadcn-logo.png';
 
 
 export const skillCategories: SkillCategory[] = [
@@ -91,7 +92,8 @@ export const skillCategories: SkillCategory[] = [
         skills: [
             { name: "jQuery", logo: jqueryLogo, level: 80, description: "DOM manipulation and AJAX" },
             { name: "Socket.IO", logo: socketLogo, level: 65, description: "Real-time communication" },
-            { name: "Inertia.js", logo: inertiaJsLogo, level: 85, description: "Modern monoliths with server-driven SPA" }
+            { name: "Inertia.js", logo: inertiaJsLogo, level: 85, description: "Modern monoliths with server-driven SPA" },
+            { name: "Shadcn UI", logo: shadcnLogo, level: 80, description: "Component library for building accessible React apps" }
         ]
     },
     {

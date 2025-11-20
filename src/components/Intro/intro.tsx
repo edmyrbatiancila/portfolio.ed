@@ -7,6 +7,7 @@ import { textArray } from '../../utils/Intro/introText';
 
 const Intro: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [currentText, setCurrentText] = useState(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -15,9 +16,6 @@ const Intro: React.FC = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  // const textArray = ["Web Developer", "Full-Stack Enthusiast", "Problem Solver", "Creative Thinker", "Drummer 🥁", "Runner 🥈", "Hiker 🌄"];
-  const [currentText, setCurrentText] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -157,8 +155,8 @@ const Intro: React.FC = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            After completing a bootcamp and pursuing self-study, I am ready to embark on my journey 
-            into the field of web/software development and make a significant impact in the tech industry.
+            After completing a bootcamp and pursuing self-study, I was ready to embark on my journey 
+            into the field of web/software development and make a significant impact in the tech industry. Right now I already step into the professional world, eager to contribute my skills and passion to innovative projects. I am still learning and growing every day.
           </motion.p>
 
           {/* Action buttons */}
