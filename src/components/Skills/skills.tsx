@@ -42,7 +42,7 @@ const Skills: React.FC = () => {
             I am extremely passionate about web and software development. I received intensive training 
             at a Coding Bootcamp for 4 months and continued self-studying for 3 years to reach advanced 
             levels in the tools utilized by full-stack developers. Currently, I am focusing on full stack 
-            web development and I have 9 years of experience in IT Industry.
+            web development and I have 1 + years of professional experience in Web Development.
           </motion.p>
         </motion.div>
 

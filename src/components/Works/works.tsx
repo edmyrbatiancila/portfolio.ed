@@ -35,7 +35,7 @@ const Works: React.FC = () => {
       imageUrl: Portfolio1,
       liveUrl: "https://edmyrbatiancila.github.io/Can_I_Use_Clone/",
       githubUrl: "#",
-      category: "Web Development",
+      category: "Web Designing",
       featured: true
     },
     {
@@ -57,7 +57,7 @@ const Works: React.FC = () => {
       imageUrl: Portfolio3,
       liveUrl: "https://edmyrbatiancila.github.io/Python_Website_Clone/",
       githubUrl: "#",
-      category: "Web Development",
+      category: "Web Designing",
       featured: false
     },
     {
