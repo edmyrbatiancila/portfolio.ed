@@ -48,7 +48,10 @@ const Intro: React.FC = () => {
   }, [textArray.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-dark-500 via-dark-400 to-dark-300">
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-dark-500 via-dark-400 to-dark-300"
+      id="intro"
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient orbs */}

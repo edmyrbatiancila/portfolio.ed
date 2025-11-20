@@ -78,7 +78,6 @@ const App: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, margin: "-100px" }}
-            id="intro"
           >
             <Intro />
           </motion.section>
@@ -88,7 +87,6 @@ const App: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
-            id="skills"
           >
             <Skills />
           </motion.section>
@@ -98,7 +96,6 @@ const App: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             viewport={{ once: true, margin: "-100px" }}
-            id="works"
           >
             <Works />
           </motion.section>
@@ -108,7 +105,6 @@ const App: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
             viewport={{ once: true, margin: "-100px" }}
-            id="contact"
           >
             <Contact />
           </motion.section>

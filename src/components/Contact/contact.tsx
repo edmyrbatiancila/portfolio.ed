@@ -121,6 +121,7 @@ const Contact: React.FC = () => {
     <section 
       ref={ref} 
       className="py-20 bg-gradient-to-b from-dark-400 to-dark-500"
+      id="contact"
     >
       <motion.div
         variants={containerVariants}
