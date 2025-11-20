@@ -1,10 +1,4 @@
+/* Footer component styles - Using Tailwind CSS */
 .footer {
-    width: 100vw;
-    height: 4rem;
-    background-color: rgb(40, 40, 40);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 300;
-    font-size: small;
+  /* All styles are handled by Tailwind CSS classes */
 }
