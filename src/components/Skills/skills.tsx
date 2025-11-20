@@ -16,7 +16,7 @@ import phpLogo from '../../assets/php.png';
 import nodeLogo from '../../assets/nodejs-logo.png';
 import laravelLogo from '../../assets/laravel-logo.png';
 
-const Skills = () => {
+const Skills: React.FC = () => {
   return (
     <section id="skills">
       <span className="skillTitle">About Me</span>
@@ -26,10 +26,10 @@ const Skills = () => {
         self-studying for a year to reach advanced levels in the tools utilized
         by full-stack developers. During the program, I passed exams, actively
         participated in daily sessions and code reviews, and acquired best
-        practices knowledge in coding. Currently, I am focusing on front-end
+        practices knowledge in coding. Currently, I am focusing on full stack web
         development. I have six years of experience in a support role at my
-        previous company, but now I am pursuing my aspiration to become a web
-        developer. Please see below for a list of my skills and technologies
+        previous company, but now I am become a web
+        developer in my current company. Please see below for a list of my skills and technologies
         that I am proficient in.
       </span>
       <div className="skillBars">
@@ -37,11 +37,26 @@ const Skills = () => {
           <div className="skillBarText">
             <h2>Languages:</h2>
             <div className="skillBarImg">
-              <img src={htmlLogo} alt="Logo of HTML Language" />
-              <img src={cssLogo} alt="Logo of CSS Language" />
-              <img src={javascriptLogo} alt="Logo of JavaScript Language" />
-              <img src={sqlLogo} alt="Logo of SQL Language" />
-              <img src={phpLogo} alt="Logo of PHP Language" />
+              <img 
+                src={htmlLogo} 
+                alt="Logo of HTML Language" 
+              />
+              <img 
+                src={cssLogo} 
+                alt="Logo of CSS Language" 
+              />
+              <img 
+                src={javascriptLogo} 
+                alt="Logo of JavaScript Language" 
+              />
+              <img 
+                src={sqlLogo} 
+                alt="Logo of SQL Language" 
+              />
+              <img 
+                src={phpLogo} 
+                alt="Logo of PHP Language" 
+              />
             </div>
             <p>
               I have knowledge of HTML, CSS, JavaScript, SQL, and PHP from

@@ -6,7 +6,7 @@ import Works from './components/Works/works';
 import Contact from './components/Contact/contact';
 import Footer from './components/Footer/footer';
 
-export default function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Navbar />
@@ -20,4 +20,6 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
 

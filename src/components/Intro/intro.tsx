@@ -1,7 +1,7 @@
 import React from 'react';
 import './intro.css';
 
-const Intro = () => {
+const Intro: React.FC = () => {
   return (
     <section id="intro">
       <div className="introContent">

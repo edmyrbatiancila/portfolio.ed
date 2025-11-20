@@ -3,8 +3,8 @@ import './navbar.css'
 import logo from '../../assets/logo.png';
 import { Link } from 'react-scroll';
 
-const Navbar = () => {
-  const [showMenu, setShowMenu] = useState(false);
+const Navbar: React.FC = () => {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
     return (
       <nav className="navbar">
         <img src={logo} alt="My Logo" className="logo" />
@@ -46,15 +46,16 @@ const Navbar = () => {
         <button
           className="desktopMenuBtn"
           onClick={() => {
-            document
-              .getElementById("contact")
-              .scrollIntoView({ behavior: "smooth" });
+            const contactElement = document.getElementById("contact");
+            if (contactElement) {
+              contactElement.scrollIntoView({ behavior: "smooth" });
+            }
           }}
         >
           <i className="fa-solid fa-address-book desktopMenuImg"></i>
           Contact Me
         </button>
-        <i class="fa-solid fa-bars mobMenu" onClick={() => setShowMenu(!showMenu)}></i>
+        <i className="fa-solid fa-bars mobMenu" onClick={() => setShowMenu(!showMenu)}></i>
         <div
           className="navMenu"
           style={{ display: showMenu ? "flex" : "none" }}

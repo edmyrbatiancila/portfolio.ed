@@ -5,7 +5,13 @@ import githubLogo from '../../assets/github.png';
 import emailjs from '@emailjs/browser';
 import './contact.css';
 
-const logoListItems = [
+interface LogoItem {
+  imageSrc: string;
+  altText: string;
+  linkUrl: string;
+}
+
+const logoListItems: LogoItem[] = [
   {
     imageSrc: linkedinLogo,
     altText: "Logo of LinkedIn",
@@ -23,15 +29,17 @@ const logoListItems = [
   },
 ];
 
-const Contact = () => {
-  const handleLogoClick = (linkUrl) => {
+const Contact: React.FC = () => {
+  const handleLogoClick = (linkUrl: string): void => {
     window.open(linkUrl, '_blank');
   };
 
-  const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+
+    if (!form.current) return;
 
     emailjs
       .sendForm(
@@ -43,7 +51,7 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          e.target.reset();
+          (e.target as HTMLFormElement).reset();
           alert("Email Sent !");
         },
         (error) => {
@@ -82,6 +90,7 @@ const Contact = () => {
           <div className="links">
             {logoListItems.map((item, index) => (
               <img
+                key={index}
                 src={item.imageSrc}
                 alt={item.altText}
                 className="link"

@@ -7,7 +7,14 @@ import Portfolio4 from '../../assets/portfolio-first-attempt.JPG';
 import Portfolio5 from '../../assets/moneybutton-game.JPG';
 import Portfolio6 from '../../assets/fortune-cookies.JPG';
 
-const portfolioItems = [
+interface PortfolioItem {
+  imageUrl: string;
+  linkUrl: string;
+  altText?: string;
+  titleText: string;
+}
+
+const portfolioItems: PortfolioItem[] = [
   {
     imageUrl: Portfolio1,
     linkUrl: "https://edmyrbatiancila.github.io/Can_I_Use_Clone/",
@@ -23,32 +30,32 @@ const portfolioItems = [
   {
     imageUrl: Portfolio3,
     linkUrl: "https://edmyrbatiancila.github.io/Python_Website_Clone/",
-    alText: "Third Portfolio Python Website Cloning",
+    altText: "Third Portfolio Python Website Cloning",
     titleText: "Python Website Clone",
   },
   {
     imageUrl: Portfolio4,
     linkUrl: "https://edmyr-portfolio.netlify.app/",
-    alText: "Fourth Portfolio Created Portfolio first Attempt",
+    altText: "Fourth Portfolio Created Portfolio first Attempt",
     titleText: "Portfolio First Attempt",
   },
   {
     imageUrl: Portfolio5,
     linkUrl: "https://money-button-game.netlify.app/",
-    alText: "Fifth Portfolio Money Button Game",
+    altText: "Fifth Portfolio Money Button Game",
     titleText: "Money Button Game",
   },
   {
     imageUrl: Portfolio6,
     linkUrl: "https://edmyrbatiancila.github.io/fortune_cookies/",
-    alText: "Sixth Portfolio Fortune Cookies",
+    altText: "Sixth Portfolio Fortune Cookies",
     titleText: "Fortune Cookies",
   },
 ];
 
 
-const Works = () => {
-  const handleImageClick = (linkUrl) => {
+const Works: React.FC = () => {
+  const handleImageClick = (linkUrl: string): void => {
     window.open(linkUrl, '_blank');
   }
   return (
@@ -63,7 +70,7 @@ const Works = () => {
       </span>
       <div className="worksImgs">
         {portfolioItems.map((item, index) => (
-          <img key={index} src={item.imageUrl} alt={item.alText} className='worksImg' title={item.titleText} onClick={() => handleImageClick(item.linkUrl)} />
+          <img key={index} src={item.imageUrl} alt={item.altText} className='worksImg' title={item.titleText} onClick={() => handleImageClick(item.linkUrl)} />
         ))}
       </div>
     </section>
