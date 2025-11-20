@@ -118,7 +118,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section ref={ref} id="contact" className="py-20 bg-gradient-to-b from-dark-400 to-dark-500">
+    <section 
+      ref={ref} 
+      className="py-20 bg-gradient-to-b from-dark-400 to-dark-500"
+    >
       <motion.div
         variants={containerVariants}
         initial="hidden"

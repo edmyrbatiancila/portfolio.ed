@@ -140,7 +140,10 @@ const Works: React.FC = () => {
   };
 
   return (
-    <section ref={ref} id="works" className="py-20 bg-gradient-to-b from-dark-500 to-dark-400">
+    <section 
+      ref={ref} 
+      className="py-20 bg-gradient-to-b from-dark-500 to-dark-400"
+    >
       <motion.div
         variants={containerVariants}
         initial="hidden"
