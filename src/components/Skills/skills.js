@@ -16,6 +16,7 @@ import canvaLogo from '../../assets/canva-logo.png';
 import sqlLogo from '../../assets/sql-logo.png';
 import phpLogo from '../../assets/php.png';
 import nodeLogo from '../../assets/nodejs-logo.png';
+import laravelLogo from '../../assets/laravel-logo.png';
 
 const Skills = () => {
   return (
@@ -54,19 +55,17 @@ const Skills = () => {
           <div className="skillBarText">
             <h2>Frameworks:</h2>
             <section className="skillBarImg">
-              <img
-                className="express"
-                src={expressLogo}
-                alt="Logo of ExpressJS Tech"
+              <img 
+                src={laravelLogo} 
+                alt="Logo of Laravel Tech" 
               />
-              <img src={codeigniterLogo} alt="Logo of CodeIgniter Tech" />
-              <img src={bootstrapLogo} alt="Logo of Bootstrap Tech" />
+              <img 
+                src={bootstrapLogo} 
+                alt="Logo of Bootstrap Tech" 
+              />
             </section>
             <p>
-              I am proud of my ability to understand frameworks <br /> like
-              ExpressJS, CodeIgniter, and Bootstrap. <br /> I have completed
-              simple to advanced assignments during my training bootcamp. <br />{" "}
-              I am still learning these frameworks through self-study.
+              I am proud of my ability to understand frameworks like Laravel and Bootstrap. I have managed to create simple to advanced projects.
             </p>
           </div>
         </div>
