@@ -32,6 +32,7 @@ import balsamiqLogo from '../../assets/balsamiqLogo.png';
 import figmaLogo from '../../assets/figma-logo.png';
 import jiraLogo from '../../assets/jira-logo.png';
 import trelloLogo from '../../assets/trello-logo.png';
+import visualStudioLogo from '../../assets/visual-studio-code-logo.png';
 
 
 export const skillCategories: SkillCategory[] = [
@@ -79,7 +80,8 @@ export const skillCategories: SkillCategory[] = [
             { name: "Netlify", logo: netlifyLogo, level: 75, description: "Web hosting and automation" },
             { name: "Supabase", logo: supabaseLogo, level: 70, description: "Backend as a Service" },
             { name: "Jira", logo: jiraLogo, level: 80, description: "Project management and issue tracking" },
-            { name: "Trello", logo: trelloLogo, level: 85, description: "Task management and collaboration" }
+            { name: "Trello", logo: trelloLogo, level: 85, description: "Task management and collaboration" },
+            { name: "Visual Studio Code", logo: visualStudioLogo, level: 90, description: "Source-code editor" }
         ]
     },
     {
