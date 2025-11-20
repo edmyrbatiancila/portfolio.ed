@@ -8,9 +8,9 @@ import Footer from './components/Footer/footer';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="min-h-screen bg-dark-400">
       <Navbar />
-      <main>
+      <main className="flex flex-col">
         <Intro />
         <Skills />
         <Works />

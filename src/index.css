@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles that work with Tailwind */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-dark-400 text-white font-poppins overflow-y-auto;
+  }
+
+  a {
+    @apply no-underline;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-white text-black border-none px-6 py-3 rounded-full cursor-pointer hover:bg-gray-100 transition-colors;
+  }
+
+  .skill-bar {
+    @apply m-4 p-6 rounded-3xl bg-dark-200 border border-primary-500;
+  }
+
+  .nav-link {
+    @apply mx-4 cursor-pointer hover:text-primary-500 hover:pb-2 hover:border-b-2 hover:border-primary-500 transition-all;
+  }
+
+  .nav-link-active {
+    @apply text-primary-500 pb-2 border-b-2 border-primary-500;
+  }
+}
+
+/* Keep your existing custom styles for gradual migration */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+}
