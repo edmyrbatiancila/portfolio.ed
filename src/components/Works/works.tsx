@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ExternalLink, Github, Eye, ArrowRight, Zap, Globe } from 'lucide-react';
+import { ExternalLink, Github, Eye, ArrowRight, Zap, Globe, Clock } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
@@ -179,6 +179,21 @@ const Works: React.FC = () => {
                   </motion.div>
                 )}
 
+                {/* Ongoing Badge */}
+                {item.isOngoing && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.1 + 0.1 }}
+                    className={`absolute top-4 z-10 ${item.featured ? 'left-28' : 'left-4'}`}
+                  >
+                    <Badge className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600">
+                      <Clock size={14} />
+                      <span>Ongoing</span>
+                    </Badge>
+                  </motion.div>
+                )}
+
                 {/* Image Container */}
                 <div className="relative aspect-video overflow-hidden bg-dark-400">
                   <motion.img
@@ -193,18 +208,21 @@ const Works: React.FC = () => {
                   
                   {/* Action Buttons */}
                   <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <Button
-                        onClick={() => handleItemClick(item.liveUrl)}
-                        className="flex items-center gap-2 bg-primary-500 hover:bg-primary-600"
+                    {/* Live Demo Button - Hidden for ongoing projects */}
+                    {!item.isOngoing && (
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
                       >
-                        <Eye size={16} />
-                        <span>Live Demo</span>
-                      </Button>
-                    </motion.div>
+                        <Button
+                          onClick={() => handleItemClick(item.liveUrl)}
+                          className="flex items-center gap-2 bg-primary-500 hover:bg-primary-600"
+                        >
+                          <Eye size={16} />
+                          <span>Live Demo</span>
+                        </Button>
+                      </motion.div>
+                    )}
                     
                     {item.githubUrl && (
                       <motion.div
@@ -257,18 +275,42 @@ const Works: React.FC = () => {
 
                   {/* Footer */}
                   <div className="flex items-center justify-between text-sm text-gray-500">
-                  <div className="flex items-center gap-2">
-                    <Globe size={14} />
-                    <span>Live Project</span>
-                  </div>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    onClick={() => handleItemClick(item.liveUrl)}
-                    className="flex items-center gap-1 text-primary-400 hover:text-primary-300 transition-colors duration-300"
-                  >
-                    <span>View Details</span>
-                    <ExternalLink size={12} />
-                  </motion.button>
+                    <div className="flex items-center gap-2">
+                      {item.isOngoing ? (
+                        <>
+                          <Clock size={14} />
+                          <span>In Development</span>
+                        </>
+                      ) : (
+                        <>
+                          <Globe size={14} />
+                          <span>Live Project</span>
+                        </>
+                      )}
+                    </div>
+                    
+                    {/* Conditional action button based on project status */}
+                    {item.isOngoing ? (
+                      item.githubUrl && (
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          onClick={() => handleItemClick(item.githubUrl!)}
+                          className="flex items-center gap-1 text-primary-400 hover:text-primary-300 transition-colors duration-300"
+                        >
+                          <span>View Code</span>
+                          <Github size={12} />
+                        </motion.button>
+                      )
+                    ) : (
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        onClick={() => handleItemClick(item.liveUrl)}
+                        className="flex items-center gap-1 text-primary-400 hover:text-primary-300 transition-colors duration-300"
+                      >
+                        <span>View Details</span>
+                        <ExternalLink size={12} />
+                      </motion.button>
+                    )}
                   </div>
                 </CardContent>
 

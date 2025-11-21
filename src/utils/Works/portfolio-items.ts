@@ -6,6 +6,7 @@ import Portfolio4 from '../../assets/portfolio-first-attempt.JPG';
 import Portfolio5 from '../../assets/moneybutton-game.JPG';
 import Portfolio6 from '../../assets/fortune-cookies.JPG';
 import Portfolio7 from '../../assets/crm-lite.png';
+import Portfolio8 from '../../assets/inventrack.PNG';
 
 
 export const portfolioItems: PortfolioItem[] = [
@@ -83,7 +84,19 @@ export const portfolioItems: PortfolioItem[] = [
         imageUrl: Portfolio7,
         liveUrl: "https://crm-lite-production-d24e.up.railway.app/",
         githubUrl: "https://github.com/edmyrbatiancila/crm-lite",
-        category: "Full Stack Practice Project",
+        category: "Full Stack Practice Projects",
         featured: false,
+    },
+    {
+        id: 8,
+        title: "InvenTrack",
+        description: "An inventory management system that streamlines stock tracking, order management, and reporting for small to medium-sized businesses.",
+        technologies: ["Laravel", "React", "TypeScript", "MySQL", "Inertia.js", "Tailwind CSS"],
+        imageUrl: Portfolio8,
+        liveUrl: "#",
+        githubUrl: "https://github.com/edmyrbatiancila/inventory-management",
+        category: "Full Stack Practice Projects",
+        featured: false,
+        isOngoing: true
     }
 ];

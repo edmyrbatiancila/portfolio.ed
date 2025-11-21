@@ -8,4 +8,5 @@ export interface PortfolioItem {
     githubUrl?: string;
     category: string;
     featured: boolean;
+    isOngoing?: boolean;
 }
