@@ -5,98 +5,84 @@ import { Card, CardContent, CardDescription, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import './works.css';
-import Portfolio1 from '../../assets/can_i_use_clone.JPG';
-import Portfolio2 from '../../assets/contact-list.JPG';
-import Portfolio3 from '../../assets/python-website-clone.JPG';
-import Portfolio4 from '../../assets/portfolio-first-attempt.JPG';
-import Portfolio5 from '../../assets/moneybutton-game.JPG';
-import Portfolio6 from '../../assets/fortune-cookies.JPG';
+import { cardVariants, containerVariants, itemVariants } from '../../utils/Works/motionVariants';
+import { portfolioItems } from '../../utils/Works/portfolio-items';
 
-interface PortfolioItem {
-  id: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  imageUrl: string;
-  liveUrl: string;
-  githubUrl?: string;
-  category: string;
-  featured: boolean;
-}
+
 
 const Works: React.FC = () => {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const portfolioItems: PortfolioItem[] = [
-    {
-      id: 1,
-      title: "Can I Use Clone",
-      description: "A responsive clone of the popular Can I Use website, showcasing browser compatibility data with modern web technologies and clean UI design.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-      imageUrl: Portfolio1,
-      liveUrl: "https://edmyrbatiancila.github.io/Can_I_Use_Clone/",
-      githubUrl: "#",
-      category: "Web Designing",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Contact Management App",
-      description: "A comprehensive contact management application with CRUD operations, search functionality, and modern UI components for efficient contact organization.",
-      technologies: ["React", "JavaScript", "CSS3", "Local Storage"],
-      imageUrl: Portfolio2,
-      liveUrl: "https://contactlistv2.netlify.app/",
-      githubUrl: "#",
-      category: "React",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Python Website Clone",
-      description: "A pixel-perfect clone of the official Python website, demonstrating advanced CSS skills and responsive design principles.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Flexbox", "Grid"],
-      imageUrl: Portfolio3,
-      liveUrl: "https://edmyrbatiancila.github.io/Python_Website_Clone/",
-      githubUrl: "#",
-      category: "Web Designing",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "Portfolio V1",
-      description: "My first portfolio attempt showcasing early development skills and design sensibilities with clean layouts and interactive elements.",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-      imageUrl: Portfolio4,
-      liveUrl: "https://edmyr-portfolio.netlify.app/",
-      githubUrl: "#",
-      category: "Portfolio",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "Money Button Game",
-      description: "An interactive web game featuring engaging gameplay mechanics, score tracking, and responsive design for entertainment and learning.",
-      technologies: ["JavaScript", "HTML5", "CSS3", "Canvas API"],
-      imageUrl: Portfolio5,
-      liveUrl: "https://money-button-game.netlify.app/",
-      githubUrl: "#",
-      category: "Games",
-      featured: true
-    },
-    {
-      id: 6,
-      title: "Fortune Cookies App",
-      description: "A delightful fortune cookie application with random quote generation, smooth animations, and an intuitive user experience.",
-      technologies: ["JavaScript", "HTML5", "CSS3", "Animations"],
-      imageUrl: Portfolio6,
-      liveUrl: "https://edmyrbatiancila.github.io/fortune_cookies/",
-      githubUrl: "#",
-      category: "Web Apps",
-      featured: false
-    }
-  ];
+  // const portfolioItems: PortfolioItem[] = [
+  //   {
+  //     id: 1,
+  //     title: "Can I Use Clone",
+  //     description: "A responsive clone of the popular Can I Use website, showcasing browser compatibility data with modern web technologies and clean UI design.",
+  //     technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+  //     imageUrl: Portfolio1,
+  //     liveUrl: "https://edmyrbatiancila.github.io/Can_I_Use_Clone/",
+  //     githubUrl: "#",
+  //     category: "Web Designing",
+  //     featured: true
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Contact Management App",
+  //     description: "A comprehensive contact management application with CRUD operations, search functionality, and modern UI components for efficient contact organization.",
+  //     technologies: ["React", "JavaScript", "CSS3", "Local Storage"],
+  //     imageUrl: Portfolio2,
+  //     liveUrl: "https://contactlistv2.netlify.app/",
+  //     githubUrl: "#",
+  //     category: "React",
+  //     featured: true
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Python Website Clone",
+  //     description: "A pixel-perfect clone of the official Python website, demonstrating advanced CSS skills and responsive design principles.",
+  //     technologies: ["HTML5", "CSS3", "JavaScript", "Flexbox", "Grid"],
+  //     imageUrl: Portfolio3,
+  //     liveUrl: "https://edmyrbatiancila.github.io/Python_Website_Clone/",
+  //     githubUrl: "#",
+  //     category: "Web Designing",
+  //     featured: false
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Portfolio V1",
+  //     description: "My first portfolio attempt showcasing early development skills and design sensibilities with clean layouts and interactive elements.",
+  //     technologies: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+  //     imageUrl: Portfolio4,
+  //     liveUrl: "https://edmyr-portfolio.netlify.app/",
+  //     githubUrl: "#",
+  //     category: "Portfolio",
+  //     featured: false
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Money Button Game",
+  //     description: "An interactive web game featuring engaging gameplay mechanics, score tracking, and responsive design for entertainment and learning.",
+  //     technologies: ["JavaScript", "HTML5", "CSS3", "Canvas API"],
+  //     imageUrl: Portfolio5,
+  //     liveUrl: "https://money-button-game.netlify.app/",
+  //     githubUrl: "#",
+  //     category: "Games",
+  //     featured: true
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Fortune Cookies App",
+  //     description: "A delightful fortune cookie application with random quote generation, smooth animations, and an intuitive user experience.",
+  //     technologies: ["JavaScript", "HTML5", "CSS3", "Animations"],
+  //     imageUrl: Portfolio6,
+  //     liveUrl: "https://edmyrbatiancila.github.io/fortune_cookies/",
+  //     githubUrl: "#",
+  //     category: "Web Apps",
+  //     featured: false
+  //   }
+  // ];
 
   const categories = ['All', ...Array.from(new Set(portfolioItems.map(item => item.category)))];
   const filteredItems = selectedCategory === 'All' 
@@ -105,41 +91,6 @@ const Works: React.FC = () => {
 
   const handleItemClick = (linkUrl: string): void => {
     window.open(linkUrl, '_blank');
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99] as const
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.68, -0.55, 0.265, 1.55] as const
-      }
-    }
   };
 
   return (
