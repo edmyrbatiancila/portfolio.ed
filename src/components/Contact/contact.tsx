@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Mail, Send, User, MessageSquare, CheckCircle, AlertCircle, Linkedin, Github, Youtube } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -29,6 +29,14 @@ const Contact: React.FC = () => {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const formRef = useRef<HTMLFormElement>(null);
   const [formState, setFormState] = useState<FormState>({ status: 'idle', message: '' });
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init({
+      publicKey: 'fJ3rShuNH0wHqioIp', // Your public key
+    });
+    console.log('EmailJS initialized');
+  }, []);
 
   const logoListItems: LogoItem[] = [
     {
@@ -61,17 +69,26 @@ const Contact: React.FC = () => {
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     
-    if (!formRef.current) return;
+    if (!formRef.current) {
+      console.error('Form reference is null');
+      return;
+    }
     
     setFormState({ status: 'loading', message: 'Sending your message...' });
 
     try {
-      await emailjs.sendForm(
-        "service_9tsvboa",
-        "template_5oebv39",
-        formRef.current,
-        "fJ3rShuNH0wHqioIp"
+      console.log('Attempting to send email...');
+      
+      const result = await emailjs.sendForm(
+        "service_9tsvboa",    // Service ID
+        "template_5oebv39",   // Template ID
+        formRef.current,       // Form element
+        {
+          publicKey: "uqzjqgpuJhE9hhl93",  // Public key in options
+        }
       );
+      
+      console.log('Email sent successfully:', result);
       
       setFormState({ 
         status: 'success', 
@@ -85,10 +102,21 @@ const Contact: React.FC = () => {
         setFormState({ status: 'idle', message: '' });
       }, 5000);
       
-    } catch (error) {
+    } catch (error: any) {
+      console.error('EmailJS Error:', error);
+      
+      let errorMessage = 'Failed to send message. Please try again.';
+      
+      // Provide more specific error messages
+      if (error?.text) {
+        errorMessage = error.text;
+      } else if (error?.message) {
+        errorMessage = error.message;
+      }
+      
       setFormState({ 
         status: 'error', 
-        message: 'Failed to send message. Please try again.' 
+        message: errorMessage
       });
       
       // Reset error state after 5 seconds
