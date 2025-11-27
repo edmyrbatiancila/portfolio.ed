@@ -17,7 +17,7 @@ const Skills: React.FC = () => {
   return (
     <section 
       ref={ref} 
-      className="bg-gradient-to-b from-dark-400 to-dark-500 min-h-screen"
+      className="bg-gradient-to-b from-dark-400 to-dark-500 py-20"
       id="skills"
     >
       <motion.div
