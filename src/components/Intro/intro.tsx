@@ -5,10 +5,22 @@ import { Button } from '../ui/button';
 import './intro.css';
 import { containerVariants, itemVariants } from '../../utils/Intro/motionVariants';
 import { textArray } from '../../utils/Intro/introText';
+import { downloadResume } from '../../utils/Intro/download-resume';
 
 const Intro: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentText, setCurrentText] = useState(0);
+
+  // function for Downloading Resume:
+  // const downloadResume = () => {
+  //   const link = document.createElement('a');
+
+  //   link.href = '/external_file/Edmyr_Batiancila_Resume.pdf';
+  //   link.download = 'Edmyr_Batiancila_Resume.pdf';
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // }
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -190,9 +202,10 @@ const Intro: React.FC = () => {
               <Button
                 variant="outline"
                 className="flex items-center gap-3 bg-dark-200/50 backdrop-blur-sm border border-primary-500/30 text-gray-300 px-8 py-4 rounded-full font-medium hover:bg-dark-200/70 hover:border-primary-500/50 transition-all duration-300"
+                onClick={ downloadResume }
               >
                 <Download size={20} />
-                <span>Download CV</span>
+                <span>Download Resume</span>
               </Button>
             </motion.div>
           </motion.div>
